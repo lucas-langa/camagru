@@ -20,12 +20,14 @@
 			//echo "<script>alert('selected');</script>";
             if (isset($_POST['pwd_verify']) && isset($_POST['submit']))
             {
-				include_once "refiner.php";
+		include_once "refiner.php";
+		//has function that cleans up form data 		
                 $mail = $result['email'];
                 $x = hash("whirlpool", $_POST['pwd_verify']);
                 $q = $start->conn->prepare("UPDATE x.users SET `password`=? WHERE email = '$mail'");
                 //echo $x;
-                echo "<script>alert($x);</script>";
+                //not important
+// 	    	echo "<script>alert($x);</script>";
                 $q->execute([$x]);
                // header("Location: http://localhost:8080/camagru/login.php");
             }            
